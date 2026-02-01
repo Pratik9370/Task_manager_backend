@@ -8,7 +8,8 @@ require('dotenv').config()
 connectToMongo()
 
 const allowedOrigins = [
-    'http://localhost:5173'
+    'http://localhost:5173',
+    'https://task-manager-frontend-seven-beige.vercel.app'
   ];
   
   app.use(cors({

@@ -1,49 +1,63 @@
-📌 Task Manager – Backend (Server) Setup
+# Task Management Application – Backend
 
+This is the backend service for the **Task Management Web Application**, built as part of the **GLOBAL TREND – Full Stack Development Internship Skill Assessment**.
 
-🔧 Tech Stack
-Node.js
-Express.js
-MongoDB
-Mongoose
-JWT Authentication
-Cookie-based auth
-CORS
+It provides REST APIs for user authentication and task CRUD operations with secure cookie-based authentication.
 
+---
 
-📁 Folder Structure
-server/
+## 🚀 Tech Stack
+
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **Mongoose**
+- **JWT (jsonwebtoken)**
+- **Cookie-parser**
+- **CORS**
+- **dotenv**
+
+---
+
+## ✨ Features
+
+- User Signup & Login
+- JWT authentication using **HTTP-only cookies**
+- Protected routes using middleware
+- Create, Read, Update, Delete (CRUD) tasks
+- Tasks linked to authenticated users
+- Secure and scalable API structure
+
+---
+
+## 📁 Project Structure
+
+```text
+Server/
 ├── middleware/
-│   └── fetchUser.js
+│   └── fetchUser.js      # Middleware to decode JWT and fetch user ID
 ├── models/
-│   ├── Task.js
-│   └── User.js
+│   ├── Task.js           # Mongoose schema for task data
+│   └── User.js           # Mongoose schema for user data
 ├── routes/
-│   ├── auth.js
-│   └── crud_tasks.js
-├── node_modules/
-├── .env
-├── .gitignore
-├── db.js
-├── index.js
-├── package.json
-└── package-lock.json
+│   ├── auth.js           # Routes for User Authentication
+│   └── crud_tasks.js     # Routes for Task operations
+├── .env                  # Environment variables (DB URI)
+├── .gitignore            # Files to be ignored by Git
+├── db.js                 # MongoDB connection configuration
+├── index.js              # Main entry point of the server
+├── package.json          # Project dependencies and scripts
+└── package-lock.json     # Locked versions of dependencies
 
 
-⚙️ Environment Variables (.env)
-Create a .env file inside the server folder and add:
+
+---
+
+⚙️ Environment Variables
+
+Create a `.env` file in the root directory and add:
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-PORT=5000
-
-
-▶️ Run the Server
-
-To start the backend server:
-node index.js
-
-Server will run on:
-http://localhost:5000
+JWT_SECRET=your_jwt_secret
 
 
 🔐 Authentication Flow
@@ -65,10 +79,10 @@ POST   /api/auth/login
 GET    /api/auth/getuser
 
 Task Routes (Protected)
-GET    /api/tasks
-POST   /api/tasks
-PUT    /api/tasks/:id
-DELETE /api/tasks/:id
+GET    /api/readTasks
+POST   /api/createTask
+PUT    /api/updateTask/:id
+DELETE /api/deleteTask/:id
 
 🧪 Testing
 Postman
